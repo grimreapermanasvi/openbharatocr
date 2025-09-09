@@ -672,9 +672,11 @@ class AadhaarOCR:
         # Process full image
         processed_full_img = self.preprocess_image_enhanced(image_path)
         text1 = self.extract_text_with_paddle(processed_full_img)
-        relation_type1, relative_name1, address1 = (
-            self.extract_relative_name_and_address(text1)
-        )
+        (
+            relation_type1,
+            relative_name1,
+            address1,
+        ) = self.extract_relative_name_and_address(text1)
         results.append(
             {
                 "Relation Type": relation_type1,
@@ -686,9 +688,11 @@ class AadhaarOCR:
         # Process cropped region
         roi_img = self.crop_regions_of_interest(processed_full_img, "back_top_left")
         text2_cropped = self.extract_text_with_paddle(roi_img)
-        relation_type2, relative_name2, address2 = (
-            self.extract_relative_name_and_address(text2_cropped)
-        )
+        (
+            relation_type2,
+            relative_name2,
+            address2,
+        ) = self.extract_relative_name_and_address(text2_cropped)
         results.append(
             {
                 "Relation Type": relation_type2,

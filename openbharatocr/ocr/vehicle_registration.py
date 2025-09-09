@@ -259,7 +259,7 @@ class VehicleRegistrationExtractor:
 
     def extract_tax_info(self, text):
         patterns = [
-            r"Tax\s*Upto[:\-\s]*([A-Z0-9\s,.-]{10,30})",
+            r"Tax\s*Up to[:\-\s]*([A-Z0-9\s,.-]{10,30})",
             r"Tax[:\-\s]*([A-Z0-9\s,.-]{10,30})",
         ]
 
@@ -313,7 +313,7 @@ class VehicleRegistrationExtractor:
                 "Owner Name": self.extract_owner_name(cleaned_text),
                 "S/W/D of": self.extract_swd_name(cleaned_text),
                 "Address": self.extract_address(cleaned_text),
-                "Tax Upto": self.extract_tax_info(cleaned_text),
+                "Tax Up to": self.extract_tax_info(cleaned_text),
             }
 
             return details

@@ -597,7 +597,9 @@ class PANCardExtractor:
             result["extraction_confidence"] = (
                 "high"
                 if confidence_score >= 70
-                else "medium" if confidence_score >= 40 else "low"
+                else "medium"
+                if confidence_score >= 40
+                else "low"
             )
 
             return result
